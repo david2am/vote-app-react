@@ -24,10 +24,20 @@ npm i -D sass
 // cmd | terminal
 
 npm i -D ts-jest @testing-library/jest-dom @testing-library/react
+```
 
-/* also its types for Typescript */
+## Also its types:
+```
+// cmd | terminal
 
 npm i -D @types/testing-library__jest-dom @types/testing-library__react
+```
+
+## Also user-event:
+```
+// cmd | terminal
+
+npm i -D @testing-library/user-event @testing-library/dom   
 ```
 
 
