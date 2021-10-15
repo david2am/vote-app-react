@@ -115,6 +115,13 @@ afterEach(() => server.resetHandlers())
 afterAll(() => server.close())
 ```
 
+### Add msw browser
+```
+// cmd | terminal
+
+npx msw init dist/ --save
+```
+
 ## Polyfill fetch
 
 ### Install it
