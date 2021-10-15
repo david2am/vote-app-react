@@ -115,6 +115,24 @@ afterEach(() => server.resetHandlers())
 afterAll(() => server.close())
 ```
 
+## Polyfill fetch
+
+### Install it
+```
+// cmd | terminal
+
+npm i -D whatwg-fetch
+```
+
+### Add to the setup.js
+```
+// .jest/setup.js
+
+...
+import 'whatwg-fetch'
+...
+```
+
 ## Usage
 
 ### Be sure you have degit installed
