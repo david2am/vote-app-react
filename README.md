@@ -4,7 +4,7 @@ Feel free to remove this file from your project
 
 ## Build a vite template from React and Typescript
 ```
-// cmd or bash
+// cmd | terminal
 
 npm init vite@latest
 
@@ -13,15 +13,15 @@ npm init vite@latest
 
 ## Install sass preprocessor
 ```
-// cmd or bash
+// cmd | terminal
 
 npm i -D sass
 ```
 
 
-## Install the test dependencies:
+## Install jest & testing-library:
 ```
-// cmd or bash
+// cmd | terminal
 
 npm i -D ts-jest @testing-library/jest-dom @testing-library/react
 
@@ -31,7 +31,7 @@ npm i -D @types/testing-library__jest-dom @types/testing-library__react
 ```
 
 
-## Testing tools setup
+## Setup jest & testing-library
 
 ### Build a setup.ts file
 ```
@@ -62,18 +62,61 @@ module.exports = {
   },
 ```
 
+## Install msw (mock service worker)
+```
+// cmd | terminal
+
+npm i -D msw
+```
+
+### Build handlers.js file
+```
+// src/mocks/handlers.js
+
+import { graphql } from 'msw'
+
+const handlers = [
+  // first query
+  graphql.query('query', null)
+]
+
+export default handlers
+```
+
+### Build the server.js file
+```
+// src/mocks/server.js
+
+import { setupServer } from 'msw/node'
+import handlers from './handlers'
+
+export const server = setupServer(...handlers)
+```
+
+### Add msw server to setup.js file
+```
+// .jest/setup.js
+
+...
+import { server } from '../src/mocks/server.js'
+
+beforeAll(() => server.listen())
+afterEach(() => server.resetHandlers())
+afterAll(() => server.close())
+```
+
 ## Usage
 
 ### Be sure you have degit installed
 ```
-// cmd
+// cmd | terminal
 
 npm i -g degit
 ```
 
 ### Use degit to scaffold your next project
 ```
-// cmd
+// cmd | terminal
 
 degit https://github.com/david2am/react-ts-sass-jest-template my-project-name
 ```
