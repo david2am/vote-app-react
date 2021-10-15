@@ -2,6 +2,14 @@
 
 Feel free to remove this file from your project
 
+## Stack of Technologies
+* Vite
+* Typescript
+* sass
+* Jest
+* Testing-Library
+* Mock Service Worker (msw)
+
 ## Build a vite template for React and Typescript
 ```
 // cmd | terminal
