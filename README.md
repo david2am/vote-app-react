@@ -2,7 +2,7 @@
 
 Feel free to remove this file from your project
 
-## Build a vite template from React and Typescript
+## Build a vite template for React and Typescript
 ```
 // cmd | terminal
 
@@ -10,6 +10,7 @@ npm init vite@latest
 
 /* Follow the steps to use React and Typescript */
 ```
+
 
 ## Install sass preprocessor
 ```
@@ -26,22 +27,20 @@ npm i -D sass
 npm i -D ts-jest @testing-library/jest-dom @testing-library/react
 ```
 
-## Also its types:
+### Also its types:
 ```
 // cmd | terminal
 
 npm i -D @types/testing-library__jest-dom @types/testing-library__react
 ```
 
-## Also user-event:
+### Also user-event:
 ```
 // cmd | terminal
 
 npm i -D @testing-library/user-event @testing-library/dom   
 ```
 
-
-## Setup jest & testing-library
 
 ### Build a setup.ts file
 ```
@@ -121,6 +120,29 @@ afterAll(() => server.close())
 
 npx msw init dist/ --save
 ```
+
+### Copy/paste to main.tsx
+```
+// src/main.tsx
+
+...
+if (process.env.NODE_ENV === 'development') {
+  const { worker } = require('./mocks/browser')
+  worker.start()
+}
+...
+```
+
+### Build browser.js
+```
+// src/mocks/browser.js
+
+import { setupWorker } from 'msw'
+import { handlers } from './handlers'
+
+export const worker = setupWorker(...handlers)
+```
+
 
 ## Polyfill fetch
 
