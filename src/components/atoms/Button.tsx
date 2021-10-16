@@ -5,9 +5,20 @@ const Button = ({
   children = '',
   onClick,
   className = '',
-  type = ''
+  label = 'button label',
+  type = 'button'
 }: Props): JSX.Element => {
-  return <></>
+
+  return (
+    <button
+      type={type}
+      className={className}
+      onClick={onClick}
+      aria-label={label}
+    >
+      { children }
+    </button>
+  )
 }
 
 export { Button }
