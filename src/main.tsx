@@ -4,6 +4,7 @@ import './index.css'
 import App from './components/App'
 
 if (import.meta.env.MODE === 'development') {
+  // @ts-ignore
   import('./mocks/browser').then(
     ({ worker }) => worker.start()
   )
