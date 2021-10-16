@@ -1,6 +1,12 @@
 import './_button.sass'
+import Props from './button.props'
 
-const Button = () => {
+const Button = ({
+  children = '',
+  onClick,
+  className = '',
+  type = ''
+}: Props): JSX.Element => {
   return <></>
 }
 
