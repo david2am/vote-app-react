@@ -1,6 +1,6 @@
-# Guide To Reproduce This Template
+# Information and Usage
 
-Feel free to remove this file from your project
+_Note:_ Feel free to remove this file from your project
 
 ## Stack of Technologies
 * Vite
@@ -9,6 +9,23 @@ Feel free to remove this file from your project
 * Jest
 * Testing-Library
 * Mock Service Worker (msw)
+
+## Use degit
+
+```
+// cmd | terminal
+
+npm i -g degit
+```
+
+### Scaffold and enjoy!
+```
+// cmd | terminal
+
+degit https://github.com/david2am/react-ts-sass-jest-template my-project-name
+```
+
+# Guide To Reproduce
 
 ## Build a vite template for React and Typescript
 ```
@@ -126,7 +143,7 @@ afterAll(() => server.close())
 ```
 // cmd | terminal
 
-npx msw init dist/ --save
+npx msw init ./ --save
 ```
 
 ### Copy/paste to main.tsx
@@ -134,9 +151,10 @@ npx msw init dist/ --save
 // src/main.tsx
 
 ...
-if (process.env.NODE_ENV === 'development') {
-  const { worker } = require('./mocks/browser')
-  worker.start()
+if (import.meta.env.MODE === 'development') {
+  import('./mocks/browser').then(
+    ({ worker }) => worker.start()
+  )
 }
 ...
 ```
@@ -169,21 +187,3 @@ npm i -D whatwg-fetch
 import 'whatwg-fetch'
 ...
 ```
-
-## Usage
-
-### Be sure you have degit installed
-```
-// cmd | terminal
-
-npm i -g degit
-```
-
-### Use degit to scaffold your next project
-```
-// cmd | terminal
-
-degit https://github.com/david2am/react-ts-sass-jest-template my-project-name
-```
-
-### Enjoy!!
