@@ -1,1 +1,4 @@
-export default interface Props {}
+export default interface Props {
+  positive: number;
+  negative: number;
+}

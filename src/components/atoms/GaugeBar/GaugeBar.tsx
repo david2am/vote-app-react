@@ -3,7 +3,8 @@ import Props from './gaugaBar.props'
 
 const GaugeBar = (
   {
-    
+    positive,
+    negative
   }: Props) => {
   return (
     <></>
