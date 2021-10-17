@@ -1,5 +1,5 @@
 import './App.sass'
-import { Button } from './atoms'
+import { Button, GaugeBar } from './atoms'
 
 import thumb_up from '../assets/thumb_up.svg'
 import thumb_down from '../assets/thumb_down.svg'
@@ -19,6 +19,8 @@ function App() {
       <Button onClick={() => console.log('click')} label="Secondary button" type="submit">
         Vote now
       </Button>
+
+      <GaugeBar positive={23} negative={36} />
     </div>
   )
 }

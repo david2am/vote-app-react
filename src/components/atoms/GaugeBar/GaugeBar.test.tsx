@@ -1,6 +1,6 @@
 import { GaugeBar } from './GaugeBar'
-import Props from './gaugaBar.props'
 import { render } from '@testing-library/react'
+import Props from './gaugaBar.props'
 
 /* Test Cases
 - it "Should display the width in proportion of positive votes"
