@@ -7,7 +7,7 @@ import thumb_down from '../assets/thumb_down.svg'
 function App() {
 
   return (
-    <div style={{background: 'black'}}>
+    <div style={{background: 'white'}}>
       <Button onClick={() => console.log('click')} className="primary selected" label="thumb up button">
         <img src={thumb_up} alt="thumb up logo" />
       </Button>
