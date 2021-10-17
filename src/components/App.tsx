@@ -1,43 +1,24 @@
-import { useState } from 'react'
-import logo from '../assets/logo.svg'
 import './App.sass'
+import { Button } from './atoms/Button'
+
+import thumb_up from '../assets/thumb_up.svg'
+import thumb_down from '../assets/thumb_down.svg'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.tsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
+    <div style={{background: 'black'}}>
+      <Button onClick={() => console.log('click')} className="primary selected" label="thumb up button">
+        <img src={thumb_up} alt="thumb up logo" />
+      </Button>
+
+      <Button onClick={() => console.log('click')} className="secondary" label="thumb down button">
+        <img src={thumb_down} alt="thumb down logo" />
+      </Button>
+
+      <Button onClick={() => console.log('click')} label="Secondary button" type="submit">
+        Vote now
+      </Button>
     </div>
   )
 }
