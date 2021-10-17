@@ -1,5 +1,5 @@
 import './App.sass'
-import { Button } from './atoms/Button'
+import { Button } from './atoms'
 
 import thumb_up from '../assets/thumb_up.svg'
 import thumb_down from '../assets/thumb_down.svg'
