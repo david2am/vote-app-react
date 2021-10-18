@@ -10,6 +10,7 @@ function isMorePositive (positive: number, negative: number): boolean {
 }
 
 const Card = ({
+  id,
   name,
   description,
   category,
@@ -17,6 +18,8 @@ const Card = ({
   lastUpdated,
   votes: { positive, negative }
 }: Props) => {
+  const handleSendVote = (vote: boolean): void => console.log(id, vote) // TODO
+
   return (
     <div className="card">
       <img
@@ -51,7 +54,7 @@ const Card = ({
       </section>
 
       <VoteForm
-        onSubmit={() => console.log('submit')}
+        onSubmit={handleSendVote}
         className=""
         label="form vote"
       />

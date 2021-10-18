@@ -1,4 +1,5 @@
 export default interface Props {
+  id: number;
   name: string;
   description: string;
   category: string;

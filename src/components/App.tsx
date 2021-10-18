@@ -6,6 +6,7 @@ import kanye from '../assets/kanye.png'
 
 function App() {
   const data = {
+      id: 1,
       name: "Kanye West",
       description: "Vestibulum diam ante, porttitor a odio eget, rhoncu. Eu velit...",
       category: "entertainment",
