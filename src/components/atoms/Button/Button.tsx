@@ -6,7 +6,8 @@ const Button = ({
   onClick,
   className = '',
   label = 'button label',
-  type = 'button'
+  type = 'button',
+  disabled
 }: Props): JSX.Element => {
 
   return (
@@ -15,6 +16,7 @@ const Button = ({
       className={className}
       onClick={onClick}
       aria-label={label}
+      disabled={!!disabled}
     >
       { children }
     </button>
