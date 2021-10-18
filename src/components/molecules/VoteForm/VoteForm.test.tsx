@@ -19,14 +19,14 @@ interface Buttons {
 
 function VoteFormFactory(
     {
-      onClick,
+      onSubmit,
       className,
       label
     }: Props,
   ): Buttons {
     render(
       <VoteForm
-        onClick={onClick}
+        onSubmit={onSubmit}
         className={className}
         label={label}
       />
@@ -50,7 +50,7 @@ describe('* Form vote tests:', () => {
   it('Should be accessible and have content inside of a form container', () => {
     const { getByRole } = render(
       <VoteForm
-        onClick={mockCallBack}
+        onSubmit={mockCallBack}
         className=''
         label=''
       />
@@ -65,7 +65,7 @@ describe('* Form vote tests:', () => {
       positiveVoteButton,
       negativeVoteButton,
       submitVoteButton
-    } = VoteFormFactory({ onClick: mockCallBack, className: '', label: '' })
+    } = VoteFormFactory({ onSubmit: mockCallBack, className: '', label: '' })
 
     expect(positiveVoteButton.classList.contains('primary')).toBe(true)
     expect(negativeVoteButton.classList.contains('secondary')).toBe(true)
@@ -77,7 +77,7 @@ describe('* Form vote tests:', () => {
     const {
       positiveVoteButton,
       submitVoteButton
-    } = VoteFormFactory({ onClick: mockCallBack, className: '', label: '' })
+    } = VoteFormFactory({ onSubmit: mockCallBack, className: '', label: '' })
 
     expect(positiveVoteButton.classList.contains('selected')).toBe(false)
     expect(submitVoteButton.disabled).toBe(true)
@@ -92,7 +92,7 @@ describe('* Form vote tests:', () => {
     const {
       positiveVoteButton,
       submitVoteButton
-    } = VoteFormFactory({ onClick: mockCallBack, className: '', label: '' })
+    } = VoteFormFactory({ onSubmit: mockCallBack, className: '', label: '' })
 
     userEvent.click(positiveVoteButton)
     userEvent.click(submitVoteButton)
@@ -105,7 +105,7 @@ describe('* Form vote tests:', () => {
     const {
       positiveVoteButton,
       submitVoteButton
-    } = VoteFormFactory({ onClick: mockCallBack, className: '', label: '' })
+    } = VoteFormFactory({ onSubmit: mockCallBack, className: '', label: '' })
 
     userEvent.click(positiveVoteButton)
     userEvent.click(submitVoteButton)
