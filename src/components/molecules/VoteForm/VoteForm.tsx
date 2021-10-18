@@ -46,14 +46,14 @@ const VoteForm = ({
   return (
     <form
       onSubmit={handleSubmit}
-      className={className}
+      className="vote-form"
       aria-label={label}
     >
       { !submitClicked && (
         <>
           <Button
             onClick={handlePositiveSelection}
-            className={`primary ${positiveSelected && 'selected'}`}
+            className={`primary ${positiveSelected ? 'selected' : '' }`}
             label="positive vote"
             type="button"
           >
@@ -62,7 +62,7 @@ const VoteForm = ({
 
           <Button
             onClick={handleNegativeSelection}
-            className={`secondary ${negativeSelected && 'selected'}`}
+            className={`secondary ${negativeSelected ? 'selected' : '' }`}
             label="negative vote"
             type="button"
           >
