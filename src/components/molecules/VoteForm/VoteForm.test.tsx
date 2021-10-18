@@ -70,7 +70,7 @@ describe('* Form vote tests:', () => {
     expect(positiveVoteButton.classList.contains('primary')).toBe(true)
     expect(negativeVoteButton.classList.contains('secondary')).toBe(true)
     expect(submitVoteButton.disabled).toBe(true)
-    expect(submitVoteButton.innerText).toBe('Vote now')
+    expect(submitVoteButton.textContent).toBe('Vote now')
   })
 
   it('Should have "thumbs up" button as .selected and "Vote now" enabled if "thumbs up" was pressed', () => {
@@ -97,7 +97,7 @@ describe('* Form vote tests:', () => {
     userEvent.click(positiveVoteButton)
     userEvent.click(submitVoteButton)
 
-    expect(submitVoteButton.innerText).toBe('Vote again')
+    expect(submitVoteButton.textContent).toBe('Vote again')
     expect(mockCallBack).toHaveBeenCalled()
   })
 
