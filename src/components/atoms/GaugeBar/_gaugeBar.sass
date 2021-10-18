@@ -3,10 +3,12 @@
 .gaugebar
   display: flex
   position: relative
+  @include vertical-center
+  height: 3.5rem
 
   &__meter
     width: 100%
-    height: 3rem
+    height: 4rem
     opacity: 0.6
     -moz-appearance: none
 
@@ -24,7 +26,7 @@
     line-height: 22px
     font-family: $base-font-family
     position: absolute
-    margin-top: 13px
+    margin-top: 1.1rem
     display: flex
     left: 0%
     margin-left: 5px
@@ -39,7 +41,7 @@
     line-height: 22px
     font-family: $base-font-family
     position: absolute
-    margin-top: 13px
+    margin-top: 1.1rem
     display: flex
     right: 0%
     margin-right: 5px

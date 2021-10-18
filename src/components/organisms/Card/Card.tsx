@@ -5,7 +5,7 @@ import { GaugeBar } from '../../atoms'
 import thumb_up from '../../../assets/thumb_up.svg'
 import thumb_down from '../../../assets/thumb_down.svg'
 
-function isPositiveGreater (positive: number, negative: number): boolean {
+function isMorePositive (positive: number, negative: number): boolean {
   return positive > negative
 }
 
@@ -27,15 +27,19 @@ const Card = ({
 
       <section>
         <div className="card__title">
-          <img
-            src={ isPositiveGreater(positive, negative) ? thumb_up : thumb_down }
+          
+          <button
             className={`card__indicator ${ 
-                isPositiveGreater(positive, negative) ?
-                'card__indicator-positive' :
-                'card__indicator-negative'
-              }`}
-            alt="thumb indicator"
-          />
+              isMorePositive(positive, negative) ?
+              'card__indicator-positive' :
+              'card__indicator-negative'
+            }`}
+          >
+            <img
+              src={ isMorePositive(positive, negative) ? thumb_up : thumb_down }
+              alt="thumb indicator"
+            />
+          </button>
           <h2>{name}</h2>
         </div>
         <p className="card__description">
