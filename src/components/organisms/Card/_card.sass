@@ -1,0 +1,48 @@
+@use '../../../styles' as *
+
+.card
+  position: relative
+  font-family: $base-font-family
+  color: $base-font-color
+  width: 300px
+  height: 300px
+  overflow: hidden
+
+  &__picture
+    position: absolute
+    height: 100%
+    z-index: 0
+
+  &__indicator
+    width: 30px
+    height: 30px
+
+    &-positive
+      background: $positive-color
+
+    &-negative
+      background: $negative-color
+
+  &__title
+    position: relative
+    display: flex
+    font-size: $h2-font-size
+    padding-top: 6rem
+    height: 1.6rem
+    @include vertical-center
+
+    h2
+      font-weight: 400
+
+  &__description
+    position: relative
+    font-size: $p-font-size
+    padding: 0px $card-right-space
+
+  &__note
+    position: relative
+    font-size: $note-font-size
+    font-weight: bold
+    text-align: right
+    padding: 0px $card-right-space
+    margin-bottom: 1rem

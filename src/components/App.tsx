@@ -1,20 +1,26 @@
 import './App.sass'
-import { GaugeBar } from './atoms'
+import { Card } from './organisms'
 
-import { VoteForm } from './molecules'
+import kanye from '../assets/kanye.png'
+
 
 function App() {
-
+  const data = {
+      id: 1,
+      name: "Kanye West",
+      description: "Vestibulum diam ante, porttitor a odio eget, rhoncu. Eu velit...",
+      category: "entertainment",
+      picture: kanye,
+      lastUpdated: "2020-03-10T23:08:57.892Z",
+      votes: {
+          positive: 23,
+          negative: 36
+      }
+  }
   return (
-    <div style={{background: 'lightgray'}}>
-      <VoteForm
-        onSubmit={() => console.log('submit')}
-        className=""
-        label="form vote"
-      />
-
-      <GaugeBar positive={23} negative={36} />
-    </div>
+    <>
+      <Card {...data} />
+    </>
   )
 }
 

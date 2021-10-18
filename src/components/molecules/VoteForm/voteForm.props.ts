@@ -1,5 +1,5 @@
 export default interface Props {
-  onSubmit: (...args: unknown[]) => void,
+  onSubmit: (vote: boolean) => void,
   className: string,
   label: string
 }

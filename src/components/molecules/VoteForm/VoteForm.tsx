@@ -28,7 +28,7 @@ const VoteForm = ({
     }
     setSubmitClicked(true)
     // callback execution
-    onSubmit()
+    onSubmit(positiveSelected)
   }
 
   const handlePositiveSelection = (): void => {
