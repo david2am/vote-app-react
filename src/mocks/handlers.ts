@@ -4,7 +4,7 @@ import { data } from './data'
 
 export const handlers = [
 
-  graphql.query('CharactersQuery', (req, res, ctx) => {
+  graphql.query('CharactersQuery', (_req, res, ctx) => {
     return res(
       ctx.data({ data })
     )

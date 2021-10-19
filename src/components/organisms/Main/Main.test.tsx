@@ -15,6 +15,10 @@ function menuBarConstructor(): HTMLUListElement {
   render(<Main />);
   return screen.getByRole('menubar') as HTMLUListElement;
 }
+async function headingConstructor(): Promise<HTMLHeadingElement> {
+  render(<Main />);
+  return await screen.findByRole('heading', { name: /error/i }) as HTMLHeadingElement;
+}
 
 describe('* Main tests', () => {
 
@@ -23,9 +27,21 @@ describe('* Main tests', () => {
     expect(navbar).toBeTruthy();
   });
 
-  it('Should have 6 menuItems', async () => {
+  it('Should have 4 menuItems', async () => {
     const menuItemList = await menuItemListConstructor();
-    expect(menuItemList).toHaveLength(6);
+    expect(menuItemList).toHaveLength(4);
+  });
+
+  test('Should handle failures', async () => {
+    server.use(
+      graphql.query('CharactersQuery', (_req, res, ctx) => res(
+        ctx.status(500),
+        ctx.data({ error: 'An error has ocurred, please try later' })
+      ))
+    )
+
+    const heading = await headingConstructor();
+    expect(heading).toBeTruthy();
   });
 
 })
