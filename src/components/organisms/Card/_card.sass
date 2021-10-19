@@ -2,6 +2,10 @@
 
 .card
   position: relative
+  display: flex
+  justify-content: flex-end
+  flex-flow: column
+  
   font-family: $base-font-family
   color: $base-font-color
   width: 300px
@@ -10,12 +14,14 @@
 
   &__picture
     position: absolute
-    height: 100%
+    height: 115%
     z-index: 0
+    top: 0%
 
   &__indicator
     width: 30px
     height: 30px
+    margin-bottom: 7px
 
     &-positive
       background: $positive-color
@@ -25,19 +31,20 @@
 
   &__title
     position: relative
-    display: flex
     font-size: $h2-font-size
-    padding-top: 6rem
-    height: 1.6rem
+    align-items: flex-end !important
     @include vertical-center
 
     h2
       font-weight: 400
+      margin: 0px
+      @include text-overflow(2)
 
   &__description
     position: relative
     font-size: $p-font-size
     padding: 0px $card-right-space
+    @include text-overflow(2)
 
   &__note
     position: relative

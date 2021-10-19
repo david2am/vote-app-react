@@ -15,9 +15,17 @@ const Main = () => {
   if (error) return <h2>Oh no... error {error.message}</h2>;
 
   return (
-    <ul role="menubar" aria-label="list of characters to vote">
+    <ul
+      role="menubar"
+      className="cardList"
+      aria-label="list of characters to vote"
+    >
       {data.data.map((character: CardProps) => (
-        <li role="none" key={character.id}>
+        <li
+          role="none"
+          key={character.id}
+          className="cardList__item"
+        >
           <Card {...character} />
         </li>
       ))}
