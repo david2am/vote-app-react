@@ -4,6 +4,8 @@ import { VoteForm } from '../../molecules'
 import { GaugeBar } from '../../atoms'
 import thumb_up from '../../../assets/thumb_up.svg'
 import thumb_down from '../../../assets/thumb_down.svg'
+import { useMutation } from 'urql'
+import { VoteMutation } from '../../../graphql'
 
 function isMorePositive (positive: number, negative: number): boolean {
   return positive > negative
@@ -18,7 +20,12 @@ const Card = ({
   lastUpdated,
   votes: { positive, negative }
 }: Props) => {
-  const handleSendVote = (vote: boolean): void => console.log(id, vote) // TODO
+  const [_, updateVote] = useMutation(VoteMutation)
+
+  const handleSendVote = async (vote: boolean): Promise<void> => {
+    const { data } = await updateVote({ id, vote })
+    console.log(data) // TODO
+  }
 
   return (
     <div role="menuitem" className="card">
