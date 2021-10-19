@@ -9,18 +9,24 @@ _Note:_ Feel free to remove this file from your project
 * Jest
 * Testing-Library
 * Mock Service Worker (msw)
+* Context API
+* GraphQL
+* Urql
 
-## Use degit
+## Clone or use degit and then
 
+### Run
 ```
 // cmd | terminal
 
-npm i -g degit
+yarn add
+/* then */
+yarn dev
 ```
 
-### Scaffold and enjoy!
-```
-// cmd | terminal
+_Note:_ We are using MSW to mock graphql request, for that reason the mocked network
+connection could be lost, to fix that, focus your mouse in the Main.tsx file and press ```Ctrl + s```
+from there 
 
-degit https://github.com/david2am/react-ts-sass-jest-template my-project-name
-```
+
+
