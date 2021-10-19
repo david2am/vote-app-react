@@ -21,7 +21,7 @@ const Card = ({
   const handleSendVote = (vote: boolean): void => console.log(id, vote) // TODO
 
   return (
-    <div className="card">
+    <div role="menuitem" className="card">
       <img
         src={picture}
         className="card__picture"
