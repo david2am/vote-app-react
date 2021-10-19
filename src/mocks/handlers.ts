@@ -1,10 +1,12 @@
 import { graphql } from 'msw'
 
+import { data } from './data'
+
 export const handlers = [
 
-  graphql.query('query', (req, res, ctx) => {
+  graphql.query('charactersQuery', (req, res, ctx) => {
     return res(
-      ctx.data({})
+      ctx.data({ data })
     )
   })
 
