@@ -1,5 +1,7 @@
 import { ReactElement, ReactNode } from 'react';
 import { render } from '@testing-library/react';
+import { Provider } from 'urql'
+import { client } from '../graphql'
 
 interface Props {
   children: ReactNode
@@ -7,9 +9,9 @@ interface Props {
 const Wrapper = ({
   children
 }: Props): ReactElement => (
-    <>
+    <Provider value={client}>
       { children }
-    </>
+    </Provider>
 )
 
 const customRender = (

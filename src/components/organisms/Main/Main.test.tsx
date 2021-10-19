@@ -11,9 +11,9 @@ async function menuItemListConstructor(): Promise<HTMLElement[]> {
   render(<Main />);
   return await screen.findAllByRole('menuitem') as HTMLElement[];
 }
-function menuBarConstructor(): HTMLUListElement {
+async function menuBarConstructor(): Promise<HTMLUListElement> {
   render(<Main />);
-  return screen.getByRole('menubar') as HTMLUListElement;
+  return await screen.findByRole('menubar') as HTMLUListElement;
 }
 async function headingConstructor(): Promise<HTMLHeadingElement> {
   render(<Main />);
@@ -22,8 +22,8 @@ async function headingConstructor(): Promise<HTMLHeadingElement> {
 
 describe('* Main tests', () => {
 
-  it('Should have a menubar', () => {
-    const navbar = menuBarConstructor();
+  it('Should have a menubar', async () => {
+    const navbar = await menuBarConstructor();
     expect(navbar).toBeTruthy();
   });
 
