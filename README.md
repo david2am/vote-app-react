@@ -19,7 +19,7 @@ _Note:_ Feel free to remove this file from your project
 ```
 // cmd | terminal
 
-yarn add
+yarn install
 /* then */
 yarn dev
 ```
