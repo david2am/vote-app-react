@@ -24,9 +24,14 @@ yarn install
 yarn dev
 ```
 
-_Note:_ We are using MSW to mock graphql request, for that reason the mocked network
-connection could be lost, to fix that, focus your mouse in the Main.tsx file and press ```Ctrl + s```
-from there 
+### This could happens
+
+![image](https://user-images.githubusercontent.com/36830835/137983905-955e2b42-fe88-4de0-83df-3c0dcdb66c74.png)
+
+It's not an issue, it's the result of using MSW to mock graphql conections and Vite to do some component optimizations.
+
+_**Do the following, focus your mouse in the Main.tsx file, press ```Ctrl + s``` from there, and the data should
+be loaded successfuly (it's not required to make any changes to the file for this)**_
 
 
 
