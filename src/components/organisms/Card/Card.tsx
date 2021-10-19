@@ -2,10 +2,15 @@ import './_card.sass'
 import Props from './card.props'
 import { VoteForm } from '../../molecules'
 import { GaugeBar } from '../../atoms'
+
 import thumb_up from '../../../assets/thumb_up.svg'
 import thumb_down from '../../../assets/thumb_down.svg'
+
 import { useMutation } from 'urql'
 import { VoteMutation } from '../../../graphql'
+
+import { useContext } from 'react'
+import { CharacterContext } from '../../../context/CharacterProvider'
 
 function isMorePositive (positive: number, negative: number): boolean {
   return positive > negative
@@ -20,11 +25,12 @@ const Card = ({
   lastUpdated,
   votes: { positive, negative }
 }: Props) => {
+  const { updateCharacterList } = useContext(CharacterContext)
   const [_, updateVote] = useMutation(VoteMutation)
 
   const handleSendVote = async (vote: boolean): Promise<void> => {
     const { data } = await updateVote({ id, vote })
-    console.log(data) // TODO
+    if (data.success) updateCharacterList(id, vote)
   }
 
   return (

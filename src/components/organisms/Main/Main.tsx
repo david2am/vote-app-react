@@ -5,14 +5,18 @@ import { Card } from '../../organisms'
 import { useQuery } from 'urql'
 import { CharactersQuery } from '../../../graphql'
 
+import { useContext } from 'react'
+import { CharacterContext } from '../../../context/CharacterProvider'
+
 
 const Main = () => {
-  const [result] = useQuery({ query: CharactersQuery })
+  const { characterList, setCharacterList } = useContext(CharacterContext)
+  const [{ data, fetching, error }] = useQuery({ query: CharactersQuery })
 
-  const { data, fetching, error } = result
+  if (fetching) return <p>Loading...</p>
+  if (error) return <h2>Oh no... error {error.message}</h2>
 
-  if (fetching) return <p>Loading...</p>;
-  if (error) return <h2>Oh no... error {error.message}</h2>;
+  setCharacterList(data.data)
 
   return (
     <ul
@@ -20,7 +24,7 @@ const Main = () => {
       className="cardList"
       aria-label="list of characters to vote"
     >
-      {data.data.map((character: CardProps) => (
+      {characterList.map((character: CardProps) => (
         <li
           role="none"
           key={character.id}
