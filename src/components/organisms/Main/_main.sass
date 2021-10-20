@@ -1,14 +1,33 @@
 @use '../../../styles' as *
 
-.cardList
-  display: flex
-  padding: 0px
-  list-style-type: none
+.main
+  
 
-  &__item
-    margin: 7px
+  &__header
+    display: flex
+    justify-content: space-between
+    font-family: $base-font-family
+
+    &__title
+      margin: 0px
+      font-size: $h2-font-size
+      font-weight: 200
+
+    &__selector
+      height: 1.3rem
+      align-self: center
+
+
+  &__cardList
+    display: flex
+    padding: 0px
+    list-style-type: none
+
+    &__item
+      margin: 7px
 
 
 @media screen and (min-width: 768px)
-  .cardList
-    flex-direction: column
+  .main
+    &__cardList
+      flex-direction: column
