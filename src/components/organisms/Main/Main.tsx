@@ -6,7 +6,7 @@ import { Select } from '../../atoms'
 import { useQuery } from 'urql'
 import { CharactersQuery } from '../../../graphql'
 
-import { ChangeEvent, useContext, useState } from 'react'
+import { ChangeEvent, useContext, useEffect, useState } from 'react'
 import { CharacterContext } from '../../../context/CharacterProvider'
 
 const list = [ { id: 1, value: 'List'}, { id: 2, value: 'Grid' } ] // TODO: it should be fetched
@@ -21,6 +21,10 @@ const Main = () => {
 
   const { characterList, setCharacterList } = useContext(CharacterContext)
   const [{ data, fetching, error }] = useQuery({ query: CharactersQuery })
+
+  useEffect(() => {
+    setIsSelectVisible(document.documentElement.clientWidth > 768)
+  }, [])
 
   if (fetching) return <p>Loading...</p>
   if (error) return <h2>Oh no... error {error.message}</h2>
