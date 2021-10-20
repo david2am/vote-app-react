@@ -5,6 +5,7 @@ const Select = (
   {
     optionList,
     className,
+    onChange,
     label
   }: Props
 ) => {
@@ -13,6 +14,7 @@ const Select = (
       role="select"
       aria-label={label}
       className={className}
+      onChange={onChange}
     >
       {optionList.map(({ id, value }) => (
         <option value={value} key={id} >{value}</option>
