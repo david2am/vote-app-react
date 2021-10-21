@@ -33,5 +33,7 @@ It's not an issue, it's the result of using MSW to mock graphql conections and V
 _**Do the following, focus your mouse in the Main.tsx file, press ```Ctrl + s``` from there, and the data should
 be loaded successfuly (it's not required to make any changes to the file for this)**_
 
+## Also ou could try the graphql server to serve the content for this project
 
+https://github.com/david2am/graphql-server
 
