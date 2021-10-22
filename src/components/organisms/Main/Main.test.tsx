@@ -34,7 +34,7 @@ describe('* Main tests', () => {
 
   test('Should handle failures', async () => {
     server.use(
-      graphql.query('CharactersQuery', (_req, res, ctx) => res(
+      graphql.query('CHARACTER_QUERY', (_req, res, ctx) => res(
         ctx.status(500),
         ctx.data({ error: 'An error has ocurred, please try later' })
       ))

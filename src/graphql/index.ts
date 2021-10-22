@@ -1,3 +1,3 @@
 export { client } from './client'
-export { CharactersQuery } from './queries'
-export { VoteMutation } from './mutations'
+export { CHARACTER_QUERY } from './queries'
+export { ADD_VOTATION_MUTATION } from './mutations'
