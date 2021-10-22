@@ -2,7 +2,7 @@ import { createClient } from 'urql'
 
 const url = {
   local: {
-    SERVER: 'http://localhost:4000',
+    SERVER: 'http://localhost:4000/graphql',
     MSW: 'http://localhost:3000/graphql'
   }
 }
