@@ -1,16 +1,18 @@
-const CharactersQuery = `
-  query CharactersQuery {
-    id
-    name
-    description
-    category
-    picture
-    lastUpdated
-    votes {
-      positive
-      negative
+const CHARACTER_QUERY = `
+  query Query {
+    allCharacters {
+      id
+      name
+      description
+      category
+      picture
+      lastUpdated
+      votes {
+        positive
+        negative
+      }
     }
   }
 `
 
-export { CharactersQuery }
+export { CHARACTER_QUERY }

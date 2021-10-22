@@ -7,7 +7,7 @@ import thumb_up from '../../../assets/thumb_up.svg'
 import thumb_down from '../../../assets/thumb_down.svg'
 
 import { useMutation } from 'urql'
-import { VoteMutation } from '../../../graphql'
+import { ADD_VOTATION_MUTATION } from '../../../graphql'
 
 import { useContext } from 'react'
 import { CharacterContext } from '../../../context/CharacterProvider'
@@ -26,11 +26,11 @@ const Card = ({
   votes: { positive, negative }
 }: Props) => {
   const { updateCharacterList } = useContext(CharacterContext)
-  const [_, updateVote] = useMutation(VoteMutation)
+  const [_, updateVote] = useMutation(ADD_VOTATION_MUTATION)
 
   const handleSendVote = async (vote: boolean): Promise<void> => {
     const { data } = await updateVote({ id, vote })
-    if (data.success) updateCharacterList(id, vote)
+    if (data.addVotation.success) updateCharacterList(id, vote)
   }
 
   return (

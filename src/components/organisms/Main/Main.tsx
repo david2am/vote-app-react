@@ -4,7 +4,7 @@ import { Card } from '../../organisms'
 import { Select } from '../../atoms'
 
 import { useQuery } from 'urql'
-import { CharactersQuery } from '../../../graphql'
+import { CHARACTER_QUERY } from '../../../graphql'
 
 import { ChangeEvent, useContext, useEffect, useState } from 'react'
 import { CharacterContext } from '../../../context/CharacterProvider'
@@ -16,24 +16,25 @@ function isGrid (className: string, isSelectVisible: boolean, selectValue: strin
 }
 
 const Main = () => {
+  // state
   const [isSelectVisible, setIsSelectVisible] = useState<boolean>(true)
   const [selectValue, setSelectValue] = useState<string>('')
 
+  // effects
   const { characterList, setCharacterList } = useContext(CharacterContext)
-  const [{ data, fetching, error }] = useQuery({ query: CharactersQuery })
+  const [{ data, fetching, error }] = useQuery({ query: CHARACTER_QUERY })
 
   useEffect(() => {
     setIsSelectVisible(document.documentElement.clientWidth > 768)
   }, [])
 
-  if (fetching) return <p>Loading...</p>
-  if (error) return <h2>Oh no... error {error.message}</h2>
-
-  setCharacterList(data.data)
-
+  // handlers
   const handleSelect = ({ target: { value } }: ChangeEvent<HTMLSelectElement>): void => {
     setSelectValue(value)
   }
+
+  if (fetching) return <p>Loading...</p>
+  if (error) return <h2>Oh no... error {error.message}</h2>
 
   return (
     <>
@@ -55,7 +56,7 @@ const Main = () => {
         className={`main__cardList ${ isGrid('main__cardList', isSelectVisible, selectValue) }`}
         aria-label="list of characters to vote"
       >
-        {characterList.map((character: CardProps) => (
+        {(!!characterList.length ? characterList : data.allCharacters).map((character: CardProps) => (
           <li
             role="none"
             key={character.id}

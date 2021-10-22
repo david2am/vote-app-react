@@ -1,9 +1,14 @@
 import { createClient } from 'urql'
 
-const url = 'http://localhost:3000/graphql'
+const url = {
+  local: {
+    SERVER: 'http://localhost:4000/graphql',
+    MSW: 'http://localhost:3000/graphql'
+  }
+}
 
 const client = createClient({
-  url,
+  url: url.local.SERVER,
   fetchOptions: () => ( { headers: {} } )
 })
 

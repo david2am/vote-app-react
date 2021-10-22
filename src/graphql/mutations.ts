@@ -1,10 +1,9 @@
-const VoteMutation = `
-  mutation VoteMutation ($id: ID!, $vote: Boolean) {
-    VoteMutation (id: $id, vote: $vote) {
-      id
-      vote
+const ADD_VOTATION_MUTATION = `
+  mutation Mutation($id: Int!, $vote: Boolean!) {
+    addVotation(id: $id, vote: $vote) {
+      success
     }
   }
 `
 
-export { VoteMutation }
+export { ADD_VOTATION_MUTATION }

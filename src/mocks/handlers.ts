@@ -4,12 +4,16 @@ import { data } from './data'
 
 export const handlers = [
 
-  graphql.query('CharactersQuery', (_req, res, ctx) => res(
+  graphql.query('CHARACTER_QUERY', (_req, res, ctx) => res(
     ctx.data({ data })
   )),
 
-  graphql.mutation('VoteMutation', (_req, res, ctx) => res(
-    ctx.data({ success: true })
+  graphql.mutation('ADD_VOTATION_MUTATION', (_req, res, ctx) => res(
+    ctx.data({
+      data: {
+        addVotation: { "success": true }
+      }
+    })
   ))
 
 ]
