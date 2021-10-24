@@ -24,9 +24,13 @@ const Main = () => {
   const { characterList, setCharacterList } = useContext(CharacterContext)
   const [{ data, fetching, error }] = useQuery({ query: CHARACTER_QUERY })
 
-  useEffect(() => {
+  useEffect(() =>
     setIsSelectVisible(document.documentElement.clientWidth > 768)
-  }, [])
+  , [])
+
+  useEffect(() =>
+    data && setCharacterList(data.allCharacters)
+  , [data])
 
   // handlers
   const handleSelect = ({ target: { value } }: ChangeEvent<HTMLSelectElement>): void => {
@@ -56,7 +60,7 @@ const Main = () => {
         className={`main__cardList ${ isGrid('main__cardList', isSelectVisible, selectValue) }`}
         aria-label="list of characters to vote"
       >
-        {(!!characterList.length ? characterList : data.allCharacters).map((character: CardProps) => (
+        {(characterList).map((character: CardProps) => (
           <li
             role="none"
             key={character.id}
