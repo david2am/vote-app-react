@@ -1,10 +1,7 @@
 import './_card.sass'
 import Props from './card.props'
-import { VoteForm } from '../../molecules'
+import { VoteForm, Info } from '../../molecules'
 import { GaugeBar } from '../../atoms'
-
-import thumb_up from '../../../assets/thumb_up.svg'
-import thumb_down from '../../../assets/thumb_down.svg'
 
 import { useMutation } from 'urql'
 import { ADD_VOTATION_MUTATION } from '../../../graphql'
@@ -12,9 +9,6 @@ import { ADD_VOTATION_MUTATION } from '../../../graphql'
 import { useContext } from 'react'
 import { CharacterContext } from '../../../context/CharacterProvider'
 
-function isMorePositive (positive: number, negative: number): boolean {
-  return positive > negative
-}
 
 const Card = ({
   id,
@@ -41,30 +35,13 @@ const Card = ({
         alt="celebrity picture"
       />
 
-      <section>
-        <div className="card__title">
-          
-          <button
-            className={`card__indicator ${ 
-              isMorePositive(positive, negative) ?
-              'card__indicator-positive' :
-              'card__indicator-negative'
-            }`}
-          >
-            <img
-              src={ isMorePositive(positive, negative) ? thumb_up : thumb_down }
-              alt="thumb indicator"
-            />
-          </button>
-          <h2>{name}</h2>
-        </div>
-        <p className="card__description">
-          {description}
-        </p>
-        <p className="card__note">
-          {new Date(lastUpdated).toDateString()} in {category.toUpperCase()}
-        </p>
-      </section>
+      <Info
+        name={name}
+        description={description}
+        category={category}
+        lastUpdated={lastUpdated}
+        votes={{ positive, negative }}
+      />
 
       <VoteForm
         onSubmit={handleSendVote}
@@ -72,7 +49,10 @@ const Card = ({
         label="form vote"
       />
 
-      <GaugeBar positive={positive} negative={negative} />
+      <GaugeBar
+        positive={positive}
+        negative={negative}
+      />
     </div>
   )
 }
