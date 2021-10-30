@@ -5,8 +5,10 @@
   display: flex
   justify-content: flex-end
   flex-flow: column
+
+  font-size: 1rem
   
-  font-family: $base-font-family
+  font-family: $ff-base
   color: $base-font-color
   width: 300px
   height: 300px
@@ -19,37 +21,12 @@
     top: 0%
 
   &__indicator
-    width: 30px
-    height: 30px
-    margin-bottom: 7px
+    width: 2em
+    height: 2em
+    position: absolute
 
-    &-positive
-      background: $positive-color
+    &--positive
+      background: $clr-positive-80
 
-    &-negative
-      background: $negative-color
-
-  &__title
-    position: relative
-    font-size: $h2-font-size
-    align-items: flex-end !important
-    @include vertical-center
-
-    h2
-      font-weight: 400
-      margin: 0px
-      @include text-overflow(2)
-
-  &__description
-    position: relative
-    font-size: $p-font-size
-    padding: 0px $card-right-space
-    @include text-overflow(2)
-
-  &__note
-    position: relative
-    font-size: $note-font-size
-    font-weight: bold
-    text-align: right
-    padding: 0px $card-right-space
-    margin-bottom: 1rem
+    &--negative
+      background: $clr-negative-80
