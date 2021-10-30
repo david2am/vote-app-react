@@ -3,5 +3,4 @@ export default interface Props {
   description: string;
   category: string;
   lastUpdated: string;
-  votes: { positive: number; negative: number; }
 }

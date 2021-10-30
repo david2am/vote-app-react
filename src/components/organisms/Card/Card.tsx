@@ -9,6 +9,13 @@ import { ADD_VOTATION_MUTATION } from '../../../graphql'
 import { useContext } from 'react'
 import { CharacterContext } from '../../../context/CharacterProvider'
 
+import thumb_up from '../../../assets/thumb_up.svg'
+import thumb_down from '../../../assets/thumb_down.svg'
+
+function isMorePositive (positive: number, negative: number): boolean {
+  return positive > negative
+}
+
 
 const Card = ({
   id,
@@ -35,12 +42,20 @@ const Card = ({
         alt="celebrity picture"
       />
 
+      <button
+        className={`card__indicator--${isMorePositive(positive, negative) ? 'positive' : 'negative' }` }
+      >
+        <img
+          src={ isMorePositive(positive, negative) ? thumb_up : thumb_down }
+          alt="thumb indicator"
+        />
+      </button>
+
       <Info
         name={name}
         description={description}
         category={category}
         lastUpdated={lastUpdated}
-        votes={{ positive, negative }}
       />
 
       <VoteForm
