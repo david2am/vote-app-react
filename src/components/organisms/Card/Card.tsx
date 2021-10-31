@@ -12,16 +12,13 @@ import { CharacterContext } from '../../../context'
 import thumb_up from '../../../assets/thumb_up.svg'
 import thumb_down from '../../../assets/thumb_down.svg'
 
-function isMorePositive (positive: number, negative: number): boolean {
-  return positive > negative
-}
-
-function getIndicatorModifier (positive: number, negative: number): string {
-  return isMorePositive(positive, negative) ? 'positive' : 'negative'
+function getIndicatorModifier (className: string, positive: number, negative: number): string {
+  const modifier = positive > negative ? 'positive' : 'negative'
+  return `${className}--${modifier}`
 }
 
 function getIndicatorSource (positive: number, negative: number): string {
-  return isMorePositive(positive, negative) ? thumb_up : thumb_down
+  return positive > negative ? thumb_up : thumb_down
 }
 
 
@@ -35,14 +32,17 @@ const Card = ({
   votes: { positive, negative },
   className
 }: Props) => {
+  // effects
   const { updateCharacterList } = useContext(CharacterContext)
   const [_, updateVote] = useMutation(ADD_VOTATION_MUTATION)
 
+  //handlers
   const handleSendVote = async (vote: boolean): Promise<void> => {
     const { data } = await updateVote({ id, vote })
     if (data.addVotation.success) updateCharacterList(id, vote)
   }
 
+  // markup
   return (
     <div role="menuitem" className={`card ${className}`}>
       <img
@@ -52,7 +52,7 @@ const Card = ({
       />
 
       <img
-        className={`card__indicator card__indicator--${ getIndicatorModifier(positive, negative) }` }
+        className={`card__indicator ${ getIndicatorModifier('card__indicator', positive, negative) }` }
         src={ getIndicatorSource(positive, negative) }
         alt="thumb indicator"
       />
