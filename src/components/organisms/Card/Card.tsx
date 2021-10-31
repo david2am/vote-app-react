@@ -7,7 +7,7 @@ import { useMutation } from 'urql'
 import { ADD_VOTATION_MUTATION } from '../../../graphql'
 
 import { useContext } from 'react'
-import { CharacterContext } from '../../../context/CharacterProvider'
+import { CharacterContext } from '../../../context'
 
 import thumb_up from '../../../assets/thumb_up.svg'
 import thumb_down from '../../../assets/thumb_down.svg'

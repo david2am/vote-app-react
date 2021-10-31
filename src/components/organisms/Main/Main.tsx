@@ -1,5 +1,5 @@
 import './_main.sass'
-import CardProps from '../Card/card.props'
+
 import { Card } from '../../organisms'
 import { Select } from '../../atoms'
 
@@ -7,9 +7,9 @@ import { useQuery } from 'urql'
 import { CHARACTER_QUERY } from '../../../graphql'
 
 import { ChangeEvent, useContext, useEffect, useState } from 'react'
-import { CharacterContext } from '../../../context/CharacterProvider'
+import { CharacterContext } from '../../../context'
 
-import { Character } from '../../../schema/character.props'
+import { Character } from '../../../schema'
 
 const list = [ { id: 1, value: 'List'}, { id: 2, value: 'Grid' } ] // TODO: it should be fetched
 

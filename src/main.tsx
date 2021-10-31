@@ -5,7 +5,7 @@ import App from './components/App'
 import { Provider } from 'urql'
 import { client } from './graphql'
 
-import CharacterProvider from './context/CharacterProvider'
+import { CharacterProvider, ViewProvider } from './context'
 
 if (import.meta.env.MODE === 'development') {
   // @ts-ignore
@@ -16,11 +16,13 @@ if (import.meta.env.MODE === 'development') {
 
 ReactDOM.render(
   <React.StrictMode>
-    <CharacterProvider>
-      <Provider value={client}>
-        <App />
-      </Provider>
-    </CharacterProvider>
+    <ViewProvider>
+      <CharacterProvider>
+        <Provider value={client}>
+          <App />
+        </Provider>
+      </CharacterProvider>
+    </ViewProvider>
   </React.StrictMode>,
   document.getElementById('root')
 )
