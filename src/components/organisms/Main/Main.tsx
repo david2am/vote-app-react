@@ -14,7 +14,7 @@ import { Character } from '../../../schema/character.props'
 const list = [ { id: 1, value: 'List'}, { id: 2, value: 'Grid' } ] // TODO: it should be fetched
 
 function getClassAndModifier (className: string, selectValue: string): string {
-  const classModifier = selectValue === 'Grid' ? `${className}-grid` : `${className}-list`
+  const classModifier = selectValue === 'Grid' ? `${className}--grid` : `${className}--list`
   return `${className} ${classModifier}`
 }
 

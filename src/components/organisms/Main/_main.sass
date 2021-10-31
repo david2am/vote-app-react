@@ -6,10 +6,9 @@
     display: flex
     justify-content: space-between
     font-family: $ff-base
-    margin: 2rem 0
+    margin: 0 calc(10vw + 2em) 0 calc(10vw + 2em)
 
     &__title
-      margin: 0
       font-size: $fz-h2-400-24
       font-weight: 300
       font-color: $clr-dark-00-2
@@ -19,12 +18,23 @@
 
   &__cardList
     display: flex
+    justify-content: center
     padding: 0
     list-style-type: none
     font-size: $fz-400-15
 
-    @media (min-width: $max-width-mobile)
-      flex-direction: column
+    &--list
+
+      @media (min-width: $max-width-mobile)
+        flex-direction: column
+
+    &--grid
+      
+      @media (min-width: $max-width-mobile)
+        flex-wrap: wrap
+
+    li
+      justify-content: center
 
     &__item
       margin: 0 0.7em 0.7em 0
