@@ -5,10 +5,16 @@ import thumb_up from '../../../assets/thumb_up.svg'
 import thumb_down from '../../../assets/thumb_down.svg'
 import { FormEvent, useState } from 'react'
 
+function capitalizeFirstLetter (str: string): string {
+  return str.charAt(0).toUpperCase() + str.slice(1)
+}
+
 const VoteForm = ({
     onSubmit,
     className,
-    label
+    label,
+    category,
+    lastUpdated,
   }: Props) => {
   const [positiveSelected, setPositiveSelected] = useState<boolean>(false)
   const [negativeSelected, setNegativeSelected] = useState<boolean>(false)
@@ -44,41 +50,53 @@ const VoteForm = ({
   }
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className={`voteForm ${className}`}
-      aria-label={label}
-    >
-      { !submitClicked && (
-        <>
-          <Button
-            onClick={handlePositiveSelection}
-            className={`primary ${positiveSelected ? 'selected' : '' }`}
-            label="positive vote"
-            type="button"
-          >
-            <img src={thumb_up} alt="thumb up logo" />
-          </Button>
+    <section className="vote">
 
-          <Button
-            onClick={handleNegativeSelection}
-            className={`secondary ${negativeSelected ? 'selected' : '' }`}
-            label="negative vote"
-            type="button"
-          >
-            <img src={thumb_down} alt="thumb down logo" />
-          </Button>
-        </>
-      )}
+      <p className="vote__advice">
+        { submitClicked
+          ? 'Thank you for your vote!'
+          : `${ new Date(lastUpdated).toDateString()} in ${ capitalizeFirstLetter(category) }`
+        }
+      </p>
 
-      <Button
-        disabled={submitDisabled}
-        label="submit vote"
-        type="submit"
+      <form
+        onSubmit={handleSubmit}
+        className={`vote__form ${className}`}
+        aria-label={label}
       >
-        {submitClicked ? 'Vote Again' : 'Vote Now'}
-      </Button>
-    </form>
+        { !submitClicked && (
+          <>
+            <Button
+              onClick={handlePositiveSelection}
+              className={`primary ${positiveSelected ? 'selected' : '' }`}
+              label="positive vote"
+              type="button"
+            >
+              <img src={thumb_up} alt="thumb up logo" />
+            </Button>
+
+            <Button
+              onClick={handleNegativeSelection}
+              className={`secondary ${negativeSelected ? 'selected' : '' }`}
+              label="negative vote"
+              type="button"
+            >
+              <img src={thumb_down} alt="thumb down logo" />
+            </Button>
+          </>
+        )}
+
+        <Button
+          disabled={submitDisabled}
+          label="submit vote"
+          type="submit"
+        >
+          { submitClicked ? 'Vote Again' : 'Vote Now' }
+        </Button>
+
+      </form>
+
+    </section>
   )
 }
 
