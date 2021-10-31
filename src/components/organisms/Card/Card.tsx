@@ -59,14 +59,14 @@ const Card = ({
       <Info
         name={name}
         description={description}
-        category={category}
-        lastUpdated={lastUpdated}
         className="card__info"
       />
 
       <VoteForm
         onSubmit={handleSendVote}
+        lastUpdated={lastUpdated}
         className="card__form"
+        category={category}
         label="form vote"
       />
 
