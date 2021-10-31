@@ -9,10 +9,10 @@ import { CHARACTER_QUERY } from '../../../graphql'
 import { ChangeEvent, useContext, useEffect, useState } from 'react'
 import { CharacterContext } from '../../../context/CharacterProvider'
 
-const list = [ { id: 1, value: 'Grid'}, { id: 2, value: 'List' } ] // TODO: it should be fetched
+const list = [ { id: 1, value: 'List'}, { id: 2, value: 'Grid' } ] // TODO: it should be fetched
 
 function getClassAndModifier (className: string, selectValue: string): string {
-  const classModifier = selectValue === 'List' ? `${className}-list` : `${className}-grid`
+  const classModifier = selectValue === 'Grid' ? `${className}-grid` : `${className}-list`
   return `${className} ${classModifier}`
 }
 

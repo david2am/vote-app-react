@@ -21,19 +21,11 @@
     display: flex
     padding: 0
     list-style-type: none
-    font-size: $fz-p-400-15
+    font-size: $fz-400-15
+
+    @media (min-width: $max-width-mobile)
+      flex-direction: column
 
     &__item
-      margin-right: 0.7em
+      margin: 0 0.7em 0.7em 0
 
-
-// @media screen and (min-width: 768px)
-//   .main
-//     &__cardList
-//       flex-direction: column
-
-// @media screen and (max-width: 768px)
-//   .main
-//     &__header
-//       &__selector
-//         display: none
