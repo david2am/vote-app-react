@@ -37,34 +37,39 @@ const Main = () => {
   if (error) return <h2>Oh no... error {error.message}</h2>
 
   return (
-    <>
-      <div className="main__header">
-        <h2 className="main__header__title">
-          Previous Rulings
-        </h2>
+    <main>
+
+      <div className="main__cardHeader">
+
+        <h2 className="main__cardHeader__title"> Previous Rulings </h2>
+
         <Select
-            label="Select between grid or list view"
-            className="main__header__selector"
-            onChange={handleSelect}
-            optionList={list}
-          />
+          label="Select between grid or list view"
+          className="main__cardHeader__selector"
+          onChange={handleSelect}
+          optionList={list}
+        />
+
       </div>
+
       <ul
         role="menubar"
         className={getClassAndModifier('main__cardList', selectValue)}
         aria-label="list of characters to vote"
       >
-        {(characterList).map((character: CardProps) => (
-          <li
-            role="none"
-            key={character.id}
-            className={getClassAndModifier('main__cardList__item', selectValue)}
-          >
-            <Card {...character} />
-          </li>
-        ))}
+        {
+          characterList.map((character: CardProps) => (
+            <li
+              role="none"
+              key={character.id}
+              className={getClassAndModifier('main__cardList__item', selectValue)}
+            >
+              <Card {...character} />
+            </li>
+          ))
+        }
       </ul>
-    </>
+    </main>
   )
 }
 
