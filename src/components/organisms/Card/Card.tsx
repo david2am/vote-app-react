@@ -65,7 +65,7 @@ const Card = ({
 
       <VoteForm
         onSubmit={handleSendVote}
-        className=""
+        className="card__form"
         label="form vote"
       />
 

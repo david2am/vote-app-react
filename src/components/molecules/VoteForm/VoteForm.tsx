@@ -46,7 +46,7 @@ const VoteForm = ({
   return (
     <form
       onSubmit={handleSubmit}
-      className="vote-form"
+      className={`voteForm ${className}`}
       aria-label={label}
     >
       { !submitClicked && (
