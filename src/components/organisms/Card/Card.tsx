@@ -61,6 +61,7 @@ const Card = ({
         description={description}
         category={category}
         lastUpdated={lastUpdated}
+        className="card__info"
       />
 
       <VoteForm

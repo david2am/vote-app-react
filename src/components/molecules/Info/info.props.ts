@@ -3,4 +3,5 @@ export default interface Props {
   description: string;
   category: string;
   lastUpdated: string;
+  className: string;
 }

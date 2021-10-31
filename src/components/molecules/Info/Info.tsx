@@ -5,10 +5,11 @@ const Info = ({
   name,
   description,
   category,
-  lastUpdated
+  lastUpdated,
+  className
 }: Props) => {
   return (
-    <section className="info">
+    <section className={`info ${className}`}>
       <h2 className="info__title"> {name} </h2>
 
       <p className="info__description"> {description} </p>

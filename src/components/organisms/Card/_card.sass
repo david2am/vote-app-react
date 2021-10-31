@@ -22,10 +22,12 @@
 
   &__indicator
     /* 2em = width + padding * 2 */
+    position: absolute
     width: 1.06em
     height: 1.06em
     padding: 0.47em
     z-index: 0
+    bottom: 11.8em
 
     &--positive
       background: $clr-positive-80
@@ -34,5 +36,8 @@
       background: $clr-negative-80
 
   &__form
-    margin: 0.2em 2em 0.7em 0 
+    margin: 0.2em $card-space-padding 0.7em 0 
     justify-content: flex-end
+
+  &__info
+    padding: 0 $card-space-padding
