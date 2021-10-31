@@ -1,3 +1,6 @@
-enum View { grid, list }
+enum View {
+  grid = 'grid',
+  list = 'list'
+}
 
 export { View }
