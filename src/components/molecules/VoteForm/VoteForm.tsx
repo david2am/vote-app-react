@@ -68,7 +68,7 @@ const VoteForm = ({
           <>
             <Button
               onClick={handlePositiveSelection}
-              className={`primary ${positiveSelected ? 'selected' : '' }`}
+              className={`btn--primary ${positiveSelected ? 'btn--selected' : '' }`}
               label="positive vote"
               type="button"
             >
@@ -77,7 +77,7 @@ const VoteForm = ({
 
             <Button
               onClick={handleNegativeSelection}
-              className={`secondary ${negativeSelected ? 'selected' : '' }`}
+              className={`btn--secondary ${negativeSelected ? 'btn--selected' : '' }`}
               label="negative vote"
               type="button"
             >

@@ -13,7 +13,7 @@ const Button = ({
   return (
     <button
       type={type}
-      className={className}
+      className={`btn ${className}`}
       onClick={onClick}
       aria-label={label}
       disabled={!!disabled}
