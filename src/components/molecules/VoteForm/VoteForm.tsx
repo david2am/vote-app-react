@@ -76,7 +76,7 @@ const VoteForm = ({
         label="submit vote"
         type="submit"
       >
-        {submitClicked ? 'Vote again' : 'Vote now'}
+        {submitClicked ? 'Vote Again' : 'Vote Now'}
       </Button>
     </form>
   )
