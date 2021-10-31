@@ -5,51 +5,39 @@
   display: flex
   justify-content: flex-end
   flex-flow: column
+
+  font-size: $fz-400-15
   
-  font-family: $base-font-family
-  color: $base-font-color
-  width: 300px
-  height: 300px
+  font-family: $ff-base
+  color: $clr-light
+  width: 20em
+  height: 20em
   overflow: hidden
 
   &__picture
     position: absolute
     height: 115%
     z-index: 0
-    top: 0%
+    top: 0
 
   &__indicator
-    width: 30px
-    height: 30px
-    margin-bottom: 7px
+    /* 2em = width + padding * 2 */
+    position: absolute
+    width: 1.06em
+    height: 1.06em
+    padding: 0.47em
+    z-index: 0
+    bottom: 11.8em
 
-    &-positive
-      background: $positive-color
+    &--positive
+      background: $clr-positive-80
 
-    &-negative
-      background: $negative-color
+    &--negative
+      background: $clr-negative-80
 
-  &__title
-    position: relative
-    font-size: $h2-font-size
-    align-items: flex-end !important
-    @include vertical-center
+  &__form
+    margin: 0.2em $card-space-padding 0.7em 0 
+    justify-content: flex-end
 
-    h2
-      font-weight: 400
-      margin: 0px
-      @include text-overflow(2)
-
-  &__description
-    position: relative
-    font-size: $p-font-size
-    padding: 0px $card-right-space
-    @include text-overflow(2)
-
-  &__note
-    position: relative
-    font-size: $note-font-size
-    font-weight: bold
-    text-align: right
-    padding: 0px $card-right-space
-    margin-bottom: 1rem
+  &__info
+    padding: 0 $card-space-padding

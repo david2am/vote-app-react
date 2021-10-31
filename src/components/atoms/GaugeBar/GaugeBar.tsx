@@ -19,20 +19,20 @@ const GaugeBar = (
 
   return (
     <div className="gaugebar">
-      <p className="gaugebar__positive-votes">
-        <img src={thumb_up} alt="thumb up logo" />
-        {getPositivePercentage(positive, negative)}%
-      </p>
       <meter
         role="meter"
         className="gaugebar__meter"
         value={getPositiveProportion(positive, negative)}
         aria-label={`Meter indicator with ${positive} positive votes and ${negative} negative votes`}
       />
-      <p className="gaugebar__negative-votes">
-        {100 - getPositivePercentage(positive, negative)}%
-        <img src={thumb_down} alt="thumb down logo" />
-      </p>
+      <div className="gaugebar__info">
+        <p className="gaugebar__info__positive">
+          <img src={thumb_up} alt="thumb up logo" /> {getPositivePercentage(positive, negative)}%
+        </p>
+        <p className="gaugebar__info__negative">
+          {100 - getPositivePercentage(positive, negative)}% <img src={thumb_down} alt="thumb down logo" />
+        </p>
+      </div>
     </div>
   )
 }

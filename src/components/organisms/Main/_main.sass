@@ -2,31 +2,30 @@
 
 .main
 
-  &__header
+  &__cardHeader
     display: flex
     justify-content: space-between
-    font-family: $base-font-family
+    font-family: $ff-base
+    margin: 2rem 0
 
     &__title
-      margin: 0px
-      font-size: $h2-font-size
-      font-weight: 200
+      margin: 0
+      font-size: $fz-h2-400-24
+      font-weight: 300
+      font-color: $clr-dark-00-2
 
     &__selector
-      height: 1.3rem
       align-self: center
-
 
   &__cardList
     display: flex
-    padding: 0px
+    padding: 0
     list-style-type: none
+    font-size: $fz-400-15
+
+    @media (min-width: $max-width-mobile)
+      flex-direction: column
 
     &__item
-      margin: 7px
+      margin: 0 0.7em 0.7em 0
 
-
-@media screen and (min-width: 768px)
-  .main
-    &__cardList
-      flex-direction: column

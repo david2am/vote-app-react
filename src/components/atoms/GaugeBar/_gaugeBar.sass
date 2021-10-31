@@ -1,41 +1,37 @@
 @use '../../../styles' as *
 
 .gaugebar
-  display: flex
-  position: relative
-  @include vertical-center
-  height: 3.5rem
+  font-size: $fz-400-15
 
   &__meter
+    position: absolute
+    bottom: 0.6em
     width: 100%
-    height: 4rem
-    opacity: 0.6
     -moz-appearance: none
 
     &::-webkit-meter-bar
-      background-color: $negative-color
-      border-radius: 1px
       border: none
+      border-radius: 1px
+
+      background-color: $clr-negative-60
+      height: 2.4em !important
 
     &::-webkit-meter-optimum-value
-      background: $positive-color
+      background: $clr-positive-60
 
-  &__positive-votes
-    position: absolute
-    left: 0%
-    color: #FFFFFF
-    font-size: 18px
-    line-height: 22px
-    font-family: $base-font-family
-    margin-left: 5px
+  &__info
+    position: relative
+    display: flex
+    justify-content: space-between
+
     z-index: 2
+    color: $clr-light
+    height: 2.4em
 
-  &__negative-votes
-    position: absolute
-    right: 0%
-    color: #FFFFFF
-    font-size: 18px
-    line-height: 22px
-    font-family: $base-font-family
-    margin-right: 5px
+    @include vertical-center
 
+    &__positive
+      margin-left: 0.66em
+
+    &__negative
+      margin-right: 0.66em

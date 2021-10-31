@@ -5,5 +5,6 @@ export default interface Props {
   category: string;
   picture: string;
   lastUpdated: string;
-  votes: { positive: number; negative: number; }
+  votes: { positive: number; negative: number; };
+  className: string;
 }

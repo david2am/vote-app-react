@@ -1,6 +1,9 @@
 @use '../../../styles' as *
 
 select
-  width: 131px
+  width: 13.1rem
   text-align: center
-  font-family: $base-font-family
+  font-family: $ff-base
+
+  @media (max-width: $max-width-mobile)
+    display: none

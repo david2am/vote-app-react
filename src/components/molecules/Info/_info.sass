@@ -1,0 +1,15 @@
+@use '../../../styles' as *
+
+.info
+  position: relative
+  font-size: $fz-400-15
+  
+  &__title
+    font-size: 2em
+    margin-bottom: 0
+    @include text-overflow(2)
+
+  &__description
+    font-size: 1em
+    margin-top: 0.8em
+    @include text-overflow(2)

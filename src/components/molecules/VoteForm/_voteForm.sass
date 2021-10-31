@@ -1,11 +1,20 @@
 @use '../../../styles' as *
 
-.vote-form
-  display: flex
-  align-items: center
-  margin-right: $card-right-space
-  justify-content: flex-end
+.vote
+  position: relative
+  font-size: $fz-400-15
 
-  button
-    margin-left: 1rem
+  &__advice
+    font-size: 0.8em
+    font-weight: 600
+    text-align: right
+    margin-right: calc($card-space-padding + 0.6rem)
+    margin-top: 0
+
+  &__form
+    display: flex
+    align-items: center
+    
+    button
+      margin-left: 0.7em
   
