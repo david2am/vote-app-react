@@ -6,24 +6,26 @@
   justify-content: flex-end
   flex-flow: column
 
-  font-size: 1rem
+  font-size: $fz-400-15
   
   font-family: $ff-base
-  color: $base-font-color
-  width: 300px
-  height: 300px
+  color: $clr-light
+  width: 20em
+  height: 20em
   overflow: hidden
 
   &__picture
     position: absolute
     height: 115%
     z-index: 0
-    top: 0%
+    top: 0
 
   &__indicator
-    width: 2em
-    height: 2em
-    position: absolute
+    /* 2em = width + padding * 2 */
+    width: 1.06em
+    height: 1.06em
+    padding: 0.47em
+    z-index: 0
 
     &--positive
       background: $clr-positive-80

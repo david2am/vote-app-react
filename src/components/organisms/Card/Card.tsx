@@ -16,6 +16,14 @@ function isMorePositive (positive: number, negative: number): boolean {
   return positive > negative
 }
 
+function getIndicatorModifier (positive: number, negative: number): string {
+  return isMorePositive(positive, negative) ? 'positive' : 'negative'
+}
+
+function getIndicatorSource (positive: number, negative: number): string {
+  return isMorePositive(positive, negative) ? thumb_up : thumb_down
+}
+
 
 const Card = ({
   id,
@@ -42,14 +50,11 @@ const Card = ({
         alt="celebrity picture"
       />
 
-      <button
-        className={`card__indicator--${isMorePositive(positive, negative) ? 'positive' : 'negative' }` }
-      >
-        <img
-          src={ isMorePositive(positive, negative) ? thumb_up : thumb_down }
-          alt="thumb indicator"
-        />
-      </button>
+      <img
+        className={`card__indicator card__indicator--${ getIndicatorModifier(positive, negative) }` }
+        src={ getIndicatorSource(positive, negative) }
+        alt="thumb indicator"
+      />
 
       <Info
         name={name}
