@@ -32,7 +32,8 @@ const Card = ({
   category,
   picture,
   lastUpdated,
-  votes: { positive, negative }
+  votes: { positive, negative },
+  className
 }: Props) => {
   const { updateCharacterList } = useContext(CharacterContext)
   const [_, updateVote] = useMutation(ADD_VOTATION_MUTATION)
@@ -43,7 +44,7 @@ const Card = ({
   }
 
   return (
-    <div role="menuitem" className="card">
+    <div role="menuitem" className={`card ${className}`}>
       <img
         src={picture}
         className="card__picture"

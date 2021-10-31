@@ -9,6 +9,8 @@ import { CHARACTER_QUERY } from '../../../graphql'
 import { ChangeEvent, useContext, useEffect, useState } from 'react'
 import { CharacterContext } from '../../../context/CharacterProvider'
 
+import { Character } from '../../../schema/character.props'
+
 const list = [ { id: 1, value: 'List'}, { id: 2, value: 'Grid' } ] // TODO: it should be fetched
 
 function getClassAndModifier (className: string, selectValue: string): string {
@@ -58,13 +60,30 @@ const Main = () => {
         aria-label="list of characters to vote"
       >
         {
-          characterList.map((character: CardProps) => (
+          characterList.map((
+            {
+              id,
+              name,
+              description,
+              category,
+              picture,
+              lastUpdated,
+              votes
+            }: Character) => (
             <li
               role="none"
-              key={character.id}
-              className={getClassAndModifier('main__cardList__item', selectValue)}
+              key={id}
             >
-              <Card {...character} />
+              <Card
+                className={getClassAndModifier('main__cardList__item', selectValue)}
+                name={name}
+                description={description}
+                category={category}
+                picture={picture}
+                lastUpdated={lastUpdated}
+                votes={votes}
+                id={id}
+              />
             </li>
           ))
         }
