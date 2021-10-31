@@ -1,5 +1,7 @@
 import './_button.sass'
 import Props from './button.props'
+import { useContext } from 'react'
+import { ViewContext } from '../../../context'
 
 const Button = ({
   children = '',
@@ -9,11 +11,12 @@ const Button = ({
   type = 'button',
   disabled
 }: Props): JSX.Element => {
+  const { getViewModifier } = useContext(ViewContext)
 
   return (
     <button
       type={type}
-      className={`btn ${className}`}
+      className={`btn ${className} ${getViewModifier('btn')}`}
       onClick={onClick}
       aria-label={label}
       disabled={!!disabled}
