@@ -1,8 +1,7 @@
 import './_main.sass'
 
-import { Card } from '../../organisms'
+import { Card, InfoBanner } from '../../organisms'
 import { Select } from '../../atoms'
-import { HeadBanner } from '../../molecules'
 
 import { useQuery } from 'urql'
 import { CHARACTER_QUERY } from '../../../graphql'
@@ -39,7 +38,7 @@ const Main = () => {
   return (
     <main>
 
-      <HeadBanner />
+      <InfoBanner />
 
       <div className="main__cardHeader">
 
@@ -96,6 +95,20 @@ const Main = () => {
 
         <button type="submit">Submit a name</button>
       </form>
+
+      <footer>
+        <div>
+          <p>Terms and Conditions</p>
+          <p>Privacy Policy</p>
+          <p>Contact Us</p>
+        </div>
+
+        <div>
+          <p>Follow us</p>
+          <img src="" alt="Facebook" />
+          <img src="" alt="Twitter" />
+        </div>
+      </footer>
 
     </main>
   )

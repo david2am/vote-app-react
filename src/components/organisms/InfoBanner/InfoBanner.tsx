@@ -1,6 +1,6 @@
-import './_headBanner.sass'
+import './_infoBanner.sass'
 
-const HeadBanner = () => {
+const InfoBanner = () => {
   return (
     <section className="headBanner">
       <div className="headBanner__title">
@@ -15,4 +15,4 @@ const HeadBanner = () => {
   )
 }
 
-export { HeadBanner }
+export { InfoBanner }
