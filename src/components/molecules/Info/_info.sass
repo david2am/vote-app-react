@@ -16,6 +16,10 @@
     margin-bottom: 0
     @include text-overflow(2)
 
+    &--list
+      @media (min-width: $max-width-mobile)
+        @include text-overflow(1)
+
   &__description
     font-size: 1em
     margin-top: 0.8em

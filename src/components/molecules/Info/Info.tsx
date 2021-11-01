@@ -11,9 +11,9 @@ const Info = ({
   const { getViewModifier } = useContext(ViewContext)
 
   return (
-    <section className={`info ${className} ${getViewModifier('info')}`}>
+    <section className={`info ${className} ${ getViewModifier('info') }`}>
 
-      <h2 className="info__title"> {name} </h2>
+      <h2 className={`info__title ${ getViewModifier('info__title') }`}> {name} </h2>
 
       <p className="info__description"> {description} </p>
 

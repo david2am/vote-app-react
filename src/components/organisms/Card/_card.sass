@@ -15,11 +15,26 @@
   height: 20em
   overflow: hidden
 
+  &--list
+    @media (min-width: $max-width-mobile)
+      width: 95vw
+      margin: 0 0.7em 0.7em 0.7em
+      height: calc(8.9em + 1vw)
+      
+      background: linear-gradient(90deg, rgba(0, 0, 0, 0.0001) 0%, #888888 19vw, #666666 45vw, rgba(51, 51, 51, 0.6) 68vw)
+
+    @media (min-width: $max-width-tablet)
+      height: calc(10.64em + 4vw)
+
   &__picture
     position: absolute
     height: 115%
     z-index: 0
     top: 0
+
+    &--list
+      @media (min-width: $max-width-mobile)
+        z-index: -1
 
   &__indicator
     /* 2em = width + padding * 2 */
@@ -27,7 +42,7 @@
     width: 1.06em
     height: 1.06em
     padding: 0.47em
-    z-index: 0
+    z-index: 2
     bottom: 11.8em
 
     &--positive
@@ -36,9 +51,23 @@
     &--negative
       background: $clr-negative-80
 
-  &__form
-    margin: 0.2em $card-space-padding 0.7em 0
-    justify-content: flex-end
+    &--list
+      top: 0
 
-  &__info
-    padding: 0 $card-space-padding
+      @media (min-width: $max-width-tablet)
+        font-size: calc($fz-400-15 * 1.5)
+
+  &__section
+    
+    &--list
+      @media (min-width: $max-width-mobile)
+        display: flex
+        justify-content: space-between
+        margin-left: 18%
+
+    &__info
+        padding: 0 $card-space-padding
+
+    &__form
+      margin: 0.2em $card-space-padding 0.7em 0
+      justify-content: flex-end
