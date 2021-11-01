@@ -36,37 +36,51 @@
       @media (min-width: $max-width-mobile)
         z-index: -1
 
-  &__indicator
-    /* 2em = width + padding * 2 */
-    position: absolute
-    width: 1.06em
-    height: 1.06em
-    padding: 0.47em
-    z-index: 2
-    bottom: 11.8em
-
-    &--positive
-      background: $clr-positive-80
-
-    &--negative
-      background: $clr-negative-80
-
-    &--list
-      top: 0
-
-      @media (min-width: $max-width-tablet)
-        font-size: calc($fz-400-15 * 1.5)
-
   &__section
     
     &--list
       @media (min-width: $max-width-mobile)
         display: flex
+        flex-direction: row
         justify-content: space-between
-        margin-left: 18%
 
     &__info
-        padding: 0 $card-space-padding
+      display: flex
+
+      &--list
+        @media (min-width: $max-width-mobile)
+          position: relative
+          top: calc(0em - 1vw)
+
+        @media (min-width: $max-width-tablet)
+          position: relative
+          top: calc(2.7em - 4vw)
+
+      &__indicator
+        width: 1.06em
+        height: 1.06em
+        padding: 0.47em
+        z-index: 9
+
+        margin: 0 0.2em 4.5em 0
+        align-self: flex-end
+
+        &--positive
+          background: $clr-positive-80
+
+        &--negative
+          background: $clr-negative-80
+
+        &--list
+          @media (min-width: $max-width-tablet)
+            font-size: calc($fz-400-15 * 1.5)
+
+      &__text
+        padding: 0 $card-space-padding 0 0
+          
+        &--list
+          @media (min-width: $max-width-mobile)
+            margin-left: 17vw
 
     &__form
       margin: 0.2em $card-space-padding 0.7em 0
