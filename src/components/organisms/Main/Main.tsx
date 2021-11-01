@@ -38,6 +38,17 @@ const Main = () => {
   return (
     <main>
 
+      <section className="main__headBanner">
+        <div className="main__headBanner__title">
+          <p>Speak out. Be heard.</p>
+          <h2>Be Counted</h2>
+        </div>
+
+        <p className="main__headBanner__paragraph">
+          Rule of Thumb is a crowd sourced court of public opinion where anyone and everyone can speak out and speak freely. It’s easy: You share your opinion, we analyze and put the data in a public report.
+        </p>
+      </section>
+
       <div className="main__cardHeader">
 
         <h2 className="main__cardHeader__title"> Previous Rulings </h2>
@@ -85,6 +96,15 @@ const Main = () => {
           ))
         }
       </ul>
+
+      <form>
+        <img src="" alt="background image" />
+
+        <p>Is there anyone else you would want us to add?</p>
+
+        <button type="submit">Submit a name</button>
+      </form>
+
     </main>
   )
 }
