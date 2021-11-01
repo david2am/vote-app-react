@@ -1,6 +1,6 @@
 @use '../../../styles' as *
 
-button
+.btn
   cursor: pointer
   border: none
   z-index: 1
@@ -13,14 +13,18 @@ button
 
   @include center-center
 
-  &.primary
+  &--primary
     background: $clr-positive-80
 
-  &.secondary
+  &--secondary
     background: $clr-negative-80
 
-  &.selected
+  &--selected
     border: 1px solid $clr-light
+  
+  &--list
+    @media (min-width: $max-width-tablet)
+      font-size: calc($fz-400-15 * 1.5)
 
   &[type="submit"]
     color: $clr-light

@@ -1,4 +1,4 @@
-export interface Character {
+interface Character {
   id: number;
   name: string;
   description: string;
@@ -7,3 +7,5 @@ export interface Character {
   lastUpdated: string;
   votes: { positive: number; negative: number; }
 }
+
+export type { Character }

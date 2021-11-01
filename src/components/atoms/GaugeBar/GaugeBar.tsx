@@ -3,6 +3,8 @@ import Props from './gaugaBar.props'
 
 import thumb_up from '../../../assets/thumb_up.svg'
 import thumb_down from '../../../assets/thumb_down.svg'
+import { useContext } from 'react'
+import { ViewContext } from '../../../context'
 
 function getPositiveProportion (positive: number, negative: number): number {
   return positive / (positive + negative)
@@ -16,9 +18,10 @@ const GaugeBar = (
     positive,
     negative
   }: Props) => {
+  const { getViewModifier } = useContext(ViewContext)
 
   return (
-    <div className="gaugebar">
+    <div className={`gaugebar ${getViewModifier('gaugebar')}`}>
       <meter
         role="meter"
         className="gaugebar__meter"

@@ -3,11 +3,10 @@ import Props from './voteForm.props'
 import { Button } from '../../atoms'
 import thumb_up from '../../../assets/thumb_up.svg'
 import thumb_down from '../../../assets/thumb_down.svg'
-import { FormEvent, useState } from 'react'
+import { FormEvent, useContext, useState } from 'react'
+import { capitalizeFirstLetter } from '../../../utils'
+import { ViewContext } from '../../../context'
 
-function capitalizeFirstLetter (str: string): string {
-  return str.charAt(0).toUpperCase() + str.slice(1)
-}
 
 const VoteForm = ({
     onSubmit,
@@ -16,11 +15,16 @@ const VoteForm = ({
     category,
     lastUpdated,
   }: Props) => {
+  // state
   const [positiveSelected, setPositiveSelected] = useState<boolean>(false)
   const [negativeSelected, setNegativeSelected] = useState<boolean>(false)
   const [submitDisabled, setSubmitDisabled] = useState<boolean>(true)
   const [submitClicked, setSubmitClicked] = useState<boolean>(false)
 
+  // effects
+  const { getViewModifier } = useContext(ViewContext)
+
+  // handlers
   const handleSubmit = (event: FormEvent): void => {
     event.preventDefault()
 
@@ -49,8 +53,9 @@ const VoteForm = ({
     setSubmitDisabled(false)
   }
 
+  // markup
   return (
-    <section className="vote">
+    <section className={`vote ${ getViewModifier('vote') }`}>
 
       <p className="vote__advice">
         { submitClicked
@@ -68,7 +73,7 @@ const VoteForm = ({
           <>
             <Button
               onClick={handlePositiveSelection}
-              className={`primary ${positiveSelected ? 'selected' : '' }`}
+              className={`btn--primary ${positiveSelected ? 'btn--selected' : '' }`}
               label="positive vote"
               type="button"
             >
@@ -77,7 +82,7 @@ const VoteForm = ({
 
             <Button
               onClick={handleNegativeSelection}
-              className={`secondary ${negativeSelected ? 'selected' : '' }`}
+              className={`btn--secondary ${negativeSelected ? 'btn--selected' : '' }`}
               label="negative vote"
               type="button"
             >

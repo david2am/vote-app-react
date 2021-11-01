@@ -4,6 +4,13 @@
   position: relative
   font-size: $fz-400-15
 
+  &--list
+    @media (min-width: $max-width-mobile)
+      display: flex
+      flex-direction: column
+      justify-content: flex-end
+      width: 27em
+
   &__advice
     font-size: 0.8em
     font-weight: 600

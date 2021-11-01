@@ -1,5 +1,5 @@
 import './_main.sass'
-import CardProps from '../Card/card.props'
+
 import { Card } from '../../organisms'
 import { Select } from '../../atoms'
 
@@ -7,23 +7,19 @@ import { useQuery } from 'urql'
 import { CHARACTER_QUERY } from '../../../graphql'
 
 import { ChangeEvent, useContext, useEffect, useState } from 'react'
-import { CharacterContext } from '../../../context/CharacterProvider'
+import { CharacterContext, ViewContext } from '../../../context'
 
-import { Character } from '../../../schema/character.props'
+import { Character, View } from '../../../schema'
 
-const list = [ { id: 1, value: 'List'}, { id: 2, value: 'Grid' } ] // TODO: it should be fetched
+const list = [ { id: 1, value: 'list'}, { id: 2, value: 'grid' } ] // TODO: it should be fetched
 
-function getClassAndModifier (className: string, selectValue: string): string {
-  const classModifier = selectValue === 'Grid' ? `${className}-grid` : `${className}-list`
-  return `${className} ${classModifier}`
-}
 
 const Main = () => {
   // state
-  const [selectValue, setSelectValue] = useState<string>('')
 
   // effects
   const { characterList, setCharacterList } = useContext(CharacterContext)
+  const { setView, getViewModifier } = useContext(ViewContext)
   const [{ data, fetching, error }] = useQuery({ query: CHARACTER_QUERY })
 
   useEffect(() =>
@@ -32,7 +28,8 @@ const Main = () => {
 
   // handlers
   const handleSelect = ({ target: { value } }: ChangeEvent<HTMLSelectElement>): void => {
-    setSelectValue(value)
+    const viewType = value === 'grid' ? View.grid : View.list
+    setView(viewType)
   }
 
   if (fetching) return <p>Loading...</p>
@@ -56,7 +53,7 @@ const Main = () => {
 
       <ul
         role="menubar"
-        className={getClassAndModifier('main__cardList', selectValue)}
+        className={`main__cardList ${getViewModifier('main__cardList')}`}
         aria-label="list of characters to vote"
       >
         {
@@ -75,7 +72,7 @@ const Main = () => {
               key={id}
             >
               <Card
-                className={getClassAndModifier('main__cardList__item', selectValue)}
+                className=""
                 name={name}
                 description={description}
                 category={category}

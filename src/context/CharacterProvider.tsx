@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useState } from 'react'
-import { Character } from '../schema/character.props'
+import { Character } from '../schema'
 
 const CharacterContext = createContext({
   characterList: [] as Character[],
@@ -34,5 +34,4 @@ const CharacterProvider = ({ children }: Props): JSX.Element => {
   )
 }
 
-export { CharacterContext }
-export default CharacterProvider
+export { CharacterContext, CharacterProvider }
