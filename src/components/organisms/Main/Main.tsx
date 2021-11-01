@@ -72,7 +72,7 @@ const Main = () => {
               key={id}
             >
               <Card
-                className={`main__cardList__item ${getViewModifier('main__cardList__item')}`}
+                className=""
                 name={name}
                 description={description}
                 category={category}
