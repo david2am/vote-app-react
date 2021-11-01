@@ -53,24 +53,32 @@ const Card = ({
     <div role="menuitem" className={`card ${className} ${ getViewModifier('card')} `}>
       
       <img
-          src={picture}
-          className={`card__picture ${ getViewModifier('card__picture') }`}
-          alt="celebrity picture"
-        />
-
-      <img
-        className={`card__indicator ${ getIndicatorModifier('card__indicator', votes) } ${ getViewModifier('card__indicator') }`}
-        src={ getIndicatorSource(votes) }
-        alt="thumb indicator"
+        src={picture}
+        className={`card__picture ${ getViewModifier('card__picture') }`}
+        alt="celebrity picture"
       />
 
       <section className={`card__section ${ getViewModifier('card__section') }`}>
-        <Info
-          name={name}
-          description={description}
-          className="card__section__info"
-        />
 
+        <div className={`card__section__info ${ getViewModifier('card__section__info') }`}>
+
+          <img
+            className={`card__section__info__indicator
+              ${ getIndicatorModifier('card__section__info__indicator', votes) }
+              ${ getViewModifier('card__section__info__indicator') }`
+            }
+            src={ getIndicatorSource(votes) }
+            alt="thumb indicator"
+          />
+
+          <Info
+            name={name}
+            description={description}
+            className={`card__section__info__text ${ getViewModifier('card__section__info__text') }`}
+          />
+
+        </div>
+        
         <VoteForm
           onSubmit={handleSendVote}
           lastUpdated={lastUpdated}
@@ -78,6 +86,7 @@ const Card = ({
           category={category}
           label="form vote"
         />
+
       </section>
 
       <GaugeBar
