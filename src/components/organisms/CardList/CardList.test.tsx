@@ -1,4 +1,4 @@
-import { Main } from './Main'
+import { Main } from './CardList'
 import { render, screen } from '../../../utils/customRender'
 import { server, graphql } from '../../../mocks'
 

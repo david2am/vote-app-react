@@ -1,5 +1,5 @@
 import './App.sass'
-import { Main } from './organisms'
+import { Main } from './pages'
 
 function App() {
   return (

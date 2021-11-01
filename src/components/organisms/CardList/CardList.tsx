@@ -1,12 +1,12 @@
-import './_main.sass'
+import './_cardList.sass'
 
-import { Card, InfoBanner, FeedbackForm } from '../../organisms'
+import { Card } from '..'
 import { Select } from '../../atoms'
 
 import { useQuery } from 'urql'
 import { CHARACTER_QUERY } from '../../../graphql'
 
-import { ChangeEvent, useContext, useEffect, useState } from 'react'
+import { ChangeEvent, useContext, useEffect } from 'react'
 import { CharacterContext, ViewContext } from '../../../context'
 
 import { Character, View } from '../../../schema'
@@ -14,7 +14,7 @@ import { Character, View } from '../../../schema'
 const list = [ { id: 1, value: 'list'}, { id: 2, value: 'grid' } ] // TODO: it should be fetched
 
 
-const Main = () => {
+const CardList = () => {
   // state
 
   // effects
@@ -36,17 +36,14 @@ const Main = () => {
   if (error) return <h2>Oh no... error {error.message}</h2>
 
   return (
-    <main>
+    <>
+      <div className="cardList__header">
 
-      <InfoBanner />
-
-      <div className="main__cardHeader">
-
-        <h2 className="main__cardHeader__title"> Previous Rulings </h2>
+        <h2 className="cardList__header__title"> Previous Rulings </h2>
 
         <Select
           label="Select between grid or list view"
-          className="main__cardHeader__selector"
+          className="cardList__header__selector"
           onChange={handleSelect}
           optionList={list}
         />
@@ -55,7 +52,7 @@ const Main = () => {
 
       <ul
         role="menubar"
-        className={`main__cardList ${getViewModifier('main__cardList')}`}
+        className={`cardList__list ${getViewModifier('cardList__list')}`}
         aria-label="list of characters to vote"
       >
         {
@@ -87,25 +84,8 @@ const Main = () => {
           ))
         }
       </ul>
-
-      <FeedbackForm />
-
-      <footer>
-        <div>
-          <p>Terms and Conditions</p>
-          <p>Privacy Policy</p>
-          <p>Contact Us</p>
-        </div>
-
-        <div>
-          <p>Follow us</p>
-          <img src="" alt="Facebook" />
-          <img src="" alt="Twitter" />
-        </div>
-      </footer>
-
-    </main>
+    </>
   )
 }
 
-export { Main }
+export { CardList }
