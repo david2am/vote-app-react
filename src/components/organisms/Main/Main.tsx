@@ -1,6 +1,6 @@
 import './_main.sass'
 
-import { Card, InfoBanner } from '../../organisms'
+import { Card, InfoBanner, FeedbackForm } from '../../organisms'
 import { Select } from '../../atoms'
 
 import { useQuery } from 'urql'
@@ -88,13 +88,7 @@ const Main = () => {
         }
       </ul>
 
-      <form>
-        <img src="" alt="background image" />
-
-        <p>Is there anyone else you would want us to add?</p>
-
-        <button type="submit">Submit a name</button>
-      </form>
+      <FeedbackForm />
 
       <footer>
         <div>
