@@ -3,7 +3,14 @@
 .info
   position: relative
   font-size: $fz-400-15
-  
+
+  &--list
+    @media (min-width: $max-width-mobile) and (max-width: $max-width-tablet)
+      font-size: calc($fz-400-15 * 0.94)
+    
+    @media (min-width: $max-width-tablet)
+      font-size: calc($fz-400-15 * 1.2)
+
   &__title
     font-size: 2em
     margin-bottom: 0
