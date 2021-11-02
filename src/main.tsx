@@ -7,11 +7,11 @@ import { client } from './graphql'
 
 import { CharacterProvider, ViewProvider } from './context'
 
-if (import.meta.env.MODE === 'development') {
+if (import.meta.env.MODE === 'development') { // TODO: use env variables to control it
   // @ts-ignore
-  import('./mocks/browser').then(
-    ({ worker }) => worker.start()
-  )
+  // import('./mocks/browser').then(
+  //   ({ worker }) => worker.start()
+  // )
 }
 
 ReactDOM.render(
