@@ -1,1 +1,49 @@
 @use '../../../styles' as *
+
+.feedForm
+  position: relative
+  width: 100%
+  height: 14.4rem
+  overflow: hidden
+
+  margin-top: 1.7em
+
+  @media (min-width: $max-width-mobile)
+    height: 10.8rem
+    align-items: center
+    justify-content: center
+
+  &__img
+    position: absolute
+    z-index: -1
+    width: 100%
+    height: auto
+    min-height: 13.5rem
+
+  &__content
+    display: flex
+    flex-direction: column
+    align-items: center
+    margin-top: 1.5rem
+
+    font-size: 2.4rem
+    font-family: $ff-base
+
+    @media (min-width: $max-width-mobile)
+      flex-direction: row
+      justify-content: space-around
+      margin-top: 2rem
+
+    &__paragraph
+      text-align: center
+      margin: 0 0 1rem 0
+
+      @media (min-width: $max-width-mobile) and (max-width: $max-width-tablet)
+        font-size: 2.1rem
+
+      @media (min-width: $max-width-tablet)
+        font-size: 2.7rem
+
+    &__btn
+      font-size: clamp(1.8rem, 0.8rem + 2vw, 2.7rem)
+      margin: 0 0.8rem

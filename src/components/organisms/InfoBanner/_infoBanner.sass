@@ -1,1 +1,28 @@
 @use '../../../styles' as *
+
+.headBanner
+  display: flex
+  width: 100%
+  background-color: $clr-neutral-00
+  padding: 1em 0 1em 0
+
+  font-size: $fz-400-15
+  font-family: $ff-base
+
+  &--list
+    @media (min-width: $max-width-mobile)
+      font-size: calc($fz-400-15 * 1.2)
+
+  &__title
+    @include center-center-column
+    min-width: 12em
+
+    &__paragraph
+      text-align: center
+      margin: 0
+    &__head
+      text-align: center
+      margin: 0
+
+  // &__paragraph
+    

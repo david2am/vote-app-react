@@ -13,6 +13,9 @@ _Note:_ Feel free to remove this file from your project
 * GraphQL
 * Urql
 
+### Icons from
+https://iconscout.com/icons
+
 ## Clone or use degit and then
 
 ### Run

@@ -1,8 +1,12 @@
+import { useContext } from 'react'
+import { ViewContext } from '../../../context'
 import './_infoBanner.sass'
 
 const InfoBanner = () => {
+  const { getViewModifier } = useContext(ViewContext)
+
   return (
-    <section className="headBanner">
+    <section className={`headBanner ${ getViewModifier('headBanner') }`}>
       <div className="headBanner__title">
         <p className="headBanner__title__paragraph">Speak out. Be heard.</p>
         <h2 className="headBanner__title__head">Be Counted</h2>

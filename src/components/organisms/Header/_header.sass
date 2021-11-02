@@ -1,0 +1,62 @@
+@use '../../../styles' as *
+
+.header
+  position: relative
+  font-size: $fz-400-15
+  font-family: $ff-base
+  height: 25em
+  min-height: 25em
+  overflow: hidden
+
+  margin-bottom: 2.5rem
+
+  &__container
+    display: flex
+    justify-content: center
+
+    &__img
+      position: absolute
+      height: auto
+      min-height: 25em
+      width: 140vw
+      z-index: -1
+
+  &__title
+    display: flex
+    justify-content: space-between
+
+    &__text
+      margin: 1rem
+      font-weight: 400
+      color: $clr-light
+
+    &__img
+      margin: 1rem
+      width: 25px
+      height: 20px
+
+  &__card
+    margin: 1rem
+    width: 20.4rem
+    height: 29.2rem
+
+    color: $clr-light
+    font-weight: 300
+
+    background: rgba(0, 0, 0, 0.4)
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+
+    p, h2
+      padding-left: 1rem 
+
+    &__form
+      display: flex
+      flex-direction: row
+
+      &__positive
+        width: 50%
+
+      &__negative
+        width: 50%

@@ -9,7 +9,6 @@ import { useContext, useEffect } from 'react'
 import { CharacterContext, ViewContext } from '../../../context'
 
 import { Character } from '../../../schema'
-import { CardListTitle } from '../../molecules'
 
 
 const CardList = () => {
@@ -28,13 +27,11 @@ const CardList = () => {
   if (error) return <h2>Oh no... error {error.message}</h2>
 
   return (
-    <>
-
-      <CardListTitle />
+    <div className="padre">
 
       <ul
         role="menubar"
-        className={`cardList__list ${ getViewModifier('cardList__list') }`}
+        className={`cardList ${ getViewModifier('cardList') }`}
         aria-label="list of characters to vote"
       >
         {
@@ -66,7 +63,7 @@ const CardList = () => {
           ))
         }
       </ul>
-    </>
+    </div>
   )
 }
 
