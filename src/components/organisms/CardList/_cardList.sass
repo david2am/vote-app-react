@@ -1,20 +1,24 @@
 @use '../../../styles' as *
 
-.cardList
+.padre
+  overflow: auto
 
-  @include center-center
+.cardList
+  display: flex
+  flex-direction: row
+
+  margin: 0 auto
+
+  align-items: center
   padding: 0
   list-style-type: none
   font-size: $fz-400-15
 
-  position: absolute
-
   &--list
     @media (min-width: $max-width-mobile)
-      position: relative
       flex-direction: column
 
   &--grid
     @media (min-width: $max-width-mobile)
-      position: relative
+      justify-content: center
       flex-wrap: wrap

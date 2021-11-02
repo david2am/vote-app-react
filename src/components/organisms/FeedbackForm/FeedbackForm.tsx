@@ -11,15 +11,16 @@ const FeedbackForm = () => {
 
   return (
     <form
-      className={`feedForm`}
+      // className={`feedForm`}
       onSubmit={handleSubmit}
     >
-      <img
-        className="feedForm__img"
-        src={background} alt="background image"
-      />
+      
+      <div className="feedForm">
+        <img
+          className="feedForm__img"
+          src={background} alt="background image"
+        />
 
-      <div>
         <p className="feedForm__paragraph">Is there anyone else you would want us to add?</p>
 
         <Button
