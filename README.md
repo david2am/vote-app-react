@@ -27,16 +27,6 @@ yarn install
 yarn dev
 ```
 
-### This could happens
-
-![image](https://user-images.githubusercontent.com/36830835/137983905-955e2b42-fe88-4de0-83df-3c0dcdb66c74.png)
-
-It's not an issue, it's the result of using MSW to mock graphql conections and Vite to do some component optimizations.
-
-_**Do the following, focus your mouse in the Main.tsx file, press ```Ctrl + s``` from there, and the data should
-be loaded successfuly (it's not required to make any changes to the file for this)**_
-
-## Also ou could try the graphql server to serve the content for this project
-
-https://github.com/david2am/graphql-server
+## Download and run the graphql server
+This front uses a simple graphql server https://github.com/david2am/graphql-server
 
