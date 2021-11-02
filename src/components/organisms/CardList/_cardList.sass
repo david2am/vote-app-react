@@ -2,16 +2,19 @@
 
 .cardList
 
-  &__list
-    @include center-center
-    padding: 0
-    list-style-type: none
-    font-size: $fz-400-15
+  @include center-center
+  padding: 0
+  list-style-type: none
+  font-size: $fz-400-15
 
-    &--list
-      @media (min-width: $max-width-mobile)
-        flex-direction: column
+  position: absolute
 
-    &--grid
-      @media (min-width: $max-width-mobile)
-        flex-wrap: wrap
+  &--list
+    @media (min-width: $max-width-mobile)
+      position: relative
+      flex-direction: column
+
+  &--grid
+    @media (min-width: $max-width-mobile)
+      position: relative
+      flex-wrap: wrap

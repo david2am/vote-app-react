@@ -34,7 +34,7 @@ const CardList = () => {
 
       <ul
         role="menubar"
-        className={`cardList__list ${ getViewModifier('cardList__list') }`}
+        className={`cardList ${ getViewModifier('cardList') }`}
         aria-label="list of characters to vote"
       >
         {
